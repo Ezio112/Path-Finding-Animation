@@ -13,9 +13,6 @@ class App extends React.Component{
 
     this.Tags=this.state.details.map(item=><ReposTile prop={item}/>);
   }
-  AddListners(){
-
-  }
   /*componentDidMount(){
     fetch("https://api.wheretheiss.at/v1/satellites/25544").then(response=> response.json())
     .then(data=> {
