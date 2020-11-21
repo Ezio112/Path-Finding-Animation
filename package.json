@@ -16,6 +16,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "hompage":{"http://Ezio112.github.io/rending-Repositories"
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -24,12 +25,14 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "hompage":{"http://Ezio112.github.io/rending-Repositories"
     "extends": [
       "react-app",
       "react-app/jest"
     ]
   },
   "browserslist": {
+    "hompage":{"http://Ezio112.github.io/rending-Repositories"
     "production": [
       ">0.2%",
       "not dead",
