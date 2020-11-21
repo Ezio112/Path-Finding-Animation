@@ -1,5 +1,6 @@
 {
   "name": "assignment",
+  "hompage":"http://Ezio112.github.io/rending-Repositories",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,9 +15,6 @@
     "reactstrap": "^8.7.1",
     "web-vitals": "^0.2.4"
   },
-  "hompage":{"http://Ezio112.github.io/rending-Repositories"
-
-  }
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
