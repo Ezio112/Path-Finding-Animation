@@ -26,7 +26,6 @@ class Graph extends React.Component{
   render(){
     return(
       <div>
-        <p> graph is shown below</p>
         <table className="Graph">
           {this.GenerateTable()}
         </table>
