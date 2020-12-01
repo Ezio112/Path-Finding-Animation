@@ -11,30 +11,40 @@ var path=[];
 var dx=[0, 0,-1,1];
 var dy=[1,-1, 0,0];
 function valid(x,y){
-  return (x>=0 && y>=0 && x<NumberOfRaw && y<NumberOfColumn && color(x,y)==="blue");
+  return (x>=0 && y>=0 && x<NumberOfRaw && y<NumberOfColumn && color(x,y) !== "black" && color(x,y)!=="yellow");
 }
 let visited = new Set();
 
 //DFS algorithm
-function dfs(i,j){
-  if(visited.has(i*1000+j)) return;
-  else  visited.add(i*1000+j);
+function dfs(Endpoints){
+  var stack=[Endpoints[0]];
+  while(stack.length !== 0){
+    var [x,y]=stack.pop();
 
-  path.push([i,j]);
-  for(var dir=0;dir<4;++dir){
-    var x=i+dx[dir];
-    var y=j+dy[dir];
-    if(valid(x,y) && color(x,y)==="blue"){
-      dfs(x,y);
+    if(visited.has(1000*x+y)) continue;
+    else visited.add(1000*x+y);
+
+    if(x===Endpoints[1][0] && y===Endpoints[1][1]){
+      return;
     }
+    path.push([x,y]);
+
+    for(var dir=0;dir<4;++dir){
+      if(valid(x+dx[dir],y+dy[dir])){
+        stack.push([x+dx[dir],y+dy[dir]]);
+      }
+    }
+
   }
 }
 
-function RunDfs(n,m){
+function RunDfs(n,m,Endpoints){
   NumberOfRaw=n;
   NumberOfColumn=m;
   console.log("DFS started")
-  dfs(0,0);
+  console.log(Endpoints);
+  dfs(Endpoints);
+  path.splice(0,1);
   return path;
 }
 export default RunDfs;

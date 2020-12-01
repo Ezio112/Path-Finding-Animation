@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App.js";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./style.css";
-import Adapter from "./Adapter.js";
+import SetAdapter from "./Adapter.js";
 import Control from "./Control.js";
+import Graph from "./Graph.js";
+import Header from "./Header.js";
 
-ReactDOM.render(<App/>,document.getElementById("maze"));
-Adapter.setAdapter(10,10);
-ReactDOM.render(<Control/>,document.getElementById("Start_button"));
+ReactDOM.render(<Header/>,document.getElementById("head"));
+ReactDOM.render(<Graph n={10} m={10}/>,document.getElementById("maze"));
+SetAdapter(10,10);
+ReactDOM.render(<Control/>,document.getElementById("controls"));
