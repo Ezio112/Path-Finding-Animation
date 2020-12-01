@@ -6,7 +6,7 @@ class App extends React.Component{
     return(
       <div>
         <Header/>
-        <Graph n={5} m={5} />
+        <Graph n={10} m={10} />
       </div>
     );
   }
