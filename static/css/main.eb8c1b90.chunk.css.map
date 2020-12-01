@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/style.css"],"names":[],"mappings":"AAAA,OACE,WAAY,CACZ,UAAW,CACX,qBACF,CACA,OACE,WACF","file":"main.eb8c1b90.chunk.css","sourcesContent":["#block{\n  height: 40px;\n  width: 40px;\n  border: 2px solid grey;\n}\n.Graph{\n  margin: auto;\n}\n"]}
