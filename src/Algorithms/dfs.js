@@ -5,12 +5,13 @@ function color(i,j){
   return getBox(i,j).style.backgroundColor;
 }
 
+var NumberOfRaw,NumberOfColumn;
 //Variables in DFS algorithm
 var path=[];
 var dx=[0, 0,-1,1];
 var dy=[1,-1, 0,0];
 function valid(x,y){
-  return (x>=0 && y>=0 && x<5 && y<5);
+  return (x>=0 && y>=0 && x<NumberOfRaw && y<NumberOfColumn);
 }
 let visited = new Set();
 
@@ -30,6 +31,8 @@ function dfs(i,j){
 }
 
 function RunDfs(n,m){
+  NumberOfRaw=n;
+  NumberOfColumn=m;
   console.log("DFS started")
   dfs(0,0);
   return path;
