@@ -11,7 +11,7 @@ var path=[];
 var dx=[0, 0,-1,1];
 var dy=[1,-1, 0,0];
 function valid(x,y){
-  return (x>=0 && y>=0 && x<NumberOfRaw && y<NumberOfColumn);
+  return (x>=0 && y>=0 && x<NumberOfRaw && y<NumberOfColumn && color(x,y)==="blue");
 }
 let visited = new Set();
 
