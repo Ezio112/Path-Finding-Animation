@@ -8,21 +8,30 @@ function color(i,j){
   return box.style.backgroundColor;
 }
 
-var index=0,path=[],agent;
+var index=0,path=[],canReach=false,agent;
+
+//It executes at regular intervals to change the colour of next box in path.
 function showOnScren(){
   if(index === path.length){
     clearInterval(agent);
     index=0;
+
+    if(canReach===false) alert("It was impossible to reach destination.");
+    else  alert("Destination was reached successfully.");
+
     return;
   }
-  //console.log(path[index][0],path[index][1]);
   getBox(path[index][0],path[index][1]).style.backgroundColor="yellow";
   ++index;
 }
-function FindEndpoints(){
-  var list=[NaN,NaN];
-  for(var i=0;i<10;++i){
-    for(var j=0;j<10;++j){
+
+
+//Returns array of begining and starting point coordinates.
+//Returns -1 if a Component is not found in gaph;
+function FindEndpoints(n,m){
+  var list=[-1,-1];
+  for(var i=0;i<n;++i){
+    for(var j=0;j<m;++j){
       if(color(i,j)==="green"){
         list[0]=[i,j];
       }
@@ -33,15 +42,22 @@ function FindEndpoints(){
   }
   return list;
 }
-function FindPath(algo){
 
-  var Endpoints=FindEndpoints();
-  console.log(Endpoints);
+//Choose which algorithm is to be called.
+function FindPath(algo,n,m){
+
+  var Endpoints=FindEndpoints(n,m);
+  //Checks for invalid graph.
+  if(Endpoints[0]===-1 || Endpoints[1]===-1){
+    alert("Wrong selection.");
+    return;
+  }
+
   if(algo === "DFS"){
-    path=RunDfs(10,10,Endpoints);
+    path=RunDfs(n,m,Endpoints);
   }
   else if(algo === "BFS"){
-    path=RunBfs(10,10,Endpoints);
+    path=RunBfs(n,m,Endpoints);
   }
   agent=setInterval(showOnScren,500);
 }

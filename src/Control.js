@@ -2,16 +2,18 @@ import React from "react";
 import FindPath from "./FindPath.js";
 
 class Control extends React.Component{
-  constructor(){
+  constructor(props){
     super();
     this.state={
-      algo:"DFS"
+      algo:"DFS",
+      n:props.n,
+      m:props.m
     };
     this.handleChange=this.handleChange.bind(this);
     this.clickHandler=this.clickHandler.bind(this);
   }
   clickHandler(){
-    FindPath(this.state.algo);
+    FindPath(this.state.algo,this.state.n,this.state.m);
   }
   handleChange(event){
     this.setState({algo:event.target.value});

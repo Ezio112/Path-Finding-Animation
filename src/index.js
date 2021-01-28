@@ -7,7 +7,18 @@ import Control from "./Control.js";
 import Graph from "./Graph.js";
 import Header from "./Header.js";
 
+//Taking the size of input from user.
+var sizeRow=Number(prompt("Enter number of rows required."));
+var sizeColumn=Number(prompt("Enter number of column required."));
+
+//Header contains only contains Instructions(text) to operate the tool.
 ReactDOM.render(<Header/>,document.getElementById("head"));
-ReactDOM.render(<Graph n={10} m={10}/>,document.getElementById("maze"));
-SetAdapter(10,10);
-ReactDOM.render(<Control/>,document.getElementById("controls"));
+
+//This creates a matrix of row*column
+ReactDOM.render(<Graph row={sizeRow} column={sizeColumn}/>,document.getElementById("maze"));
+
+//Set up listners on every box;
+SetAdapter(sizeRow,sizeColumn);
+
+//The bottom pannel of all the controls.
+ReactDOM.render(<Control n={sizeRow} m={sizeColumn}/>,document.getElementById("controls"));
