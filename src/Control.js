@@ -25,8 +25,9 @@ class Control extends React.Component{
         Choose an algorithm:
         <br/>
         <select onChange={this.handleChange}>
-          <option value="DFS">Depth first search</option>
-          <option value="BFS">Beradth first search</option>
+          <option value="DFS">Depth-first search</option>
+          <option value="BFS">Breadth-first search</option>
+          <option value="BiDir">Bi-directional search</option>
         </select>
       </lable>
       <br/>

@@ -1,5 +1,6 @@
 import RunDfs from "./Algorithms/dfs.js";
 import RunBfs from "./Algorithms/bfs.js";
+import RunBdir from "./Algorithms/bidir.js";
 function getBox(i,j){
   return document.querySelector(".i"+i).querySelector(".j"+j);
 }
@@ -60,6 +61,11 @@ function FindPath(algo,n,m){
   }
   else if(algo === "BFS"){
     var route=RunBfs(n,m,Endpoints);
+    path=route.path;
+    canReach=route.canReach;
+  }
+  else if(algo==="BiDir"){
+    var route=RunBdir(n,m,Endpoints);
     path=route.path;
     canReach=route.canReach;
   }

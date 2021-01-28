@@ -21,8 +21,8 @@ function dfs(Endpoints){
   while(stack.length !== 0){
     var [x,y]=stack.pop();
 
-    if(visited.has(NumberOfRaw*x+y)) continue;
-    else visited.add(NumberOfRaw*x+y);
+    if(visited.has(1000000*x+y)) continue;
+    else visited.add(1000000*x+y);
 
     if(x===Endpoints[1][0] && y===Endpoints[1][1]){
       canReach=true;

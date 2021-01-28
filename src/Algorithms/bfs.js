@@ -4,7 +4,7 @@ function getBox(i,j){
 function color(i,j){
   return getBox(i,j).style.backgroundColor;
 }
-var NumberOfRaw=2,NumberOfColumn=2;
+var NumberOfRaw,NumberOfColumn;
 //Variables in BFS algorithm
 var path=[],canReach=false;
 var dx=[0, 0,-1,1];
@@ -21,8 +21,8 @@ function bfs(Endpoints){
     var [x,y]=q[0];
     q.splice(0,1);
 
-    if(visited.has(x*NumberOfRaw+y)) continue;
-    else  visited.add(x*NumberOfRaw+y);
+    if(visited.has(x*1000000+y)) continue;
+    else  visited.add(x*1000000+y);
 
     if(x===Endpoints[1][0] && y===Endpoints[1][1]){
       canReach=true;
@@ -43,7 +43,7 @@ function RunBfs(n,m,Endpoints){
   NumberOfRaw=n;
   NumberOfColumn=m;
   console.log("BFS started");
-  
+
   bfs(Endpoints);
   path.splice(0,1);
   return {"path":path,"canReach":canReach};
