@@ -7,7 +7,7 @@ function color(i,j){
 
 var NumberOfRaw,NumberOfColumn;
 //Variables in DFS algorithm
-var path=[];
+var path=[],canReach=false;
 var dx=[0, 0,-1,1];
 var dy=[1,-1, 0,0];
 function valid(x,y){
@@ -21,10 +21,11 @@ function dfs(Endpoints){
   while(stack.length !== 0){
     var [x,y]=stack.pop();
 
-    if(visited.has(1000*x+y)) continue;
-    else visited.add(1000*x+y);
+    if(visited.has(NumberOfRaw*x+y)) continue;
+    else visited.add(NumberOfRaw*x+y);
 
     if(x===Endpoints[1][0] && y===Endpoints[1][1]){
+      canReach=true;
       return;
     }
     path.push([x,y]);
@@ -41,10 +42,10 @@ function dfs(Endpoints){
 function RunDfs(n,m,Endpoints){
   NumberOfRaw=n;
   NumberOfColumn=m;
-  console.log("DFS started")
-  console.log(Endpoints);
+  console.log("DFS started");
+
   dfs(Endpoints);
   path.splice(0,1);
-  return path;
+  return {"path":path,"canReach":canReach};
 }
 export default RunDfs;

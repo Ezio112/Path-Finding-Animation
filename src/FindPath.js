@@ -54,10 +54,14 @@ function FindPath(algo,n,m){
   }
 
   if(algo === "DFS"){
-    path=RunDfs(n,m,Endpoints);
+    var route=RunDfs(n,m,Endpoints);
+    path=route.path;
+    canReach=route.canReach;
   }
   else if(algo === "BFS"){
-    path=RunBfs(n,m,Endpoints);
+    var route=RunBfs(n,m,Endpoints);
+    path=route.path;
+    canReach=route.canReach;
   }
   agent=setInterval(showOnScren,500);
 }
